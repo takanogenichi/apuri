@@ -1,0 +1,9 @@
+{
+  "files": [
+    "questions/prepositions.json",
+    "questions/idioms.json",
+    "questions/conjugation.json",
+    "questions/vocabulary.json",
+    "questions/reading.json"
+  ]
+}
