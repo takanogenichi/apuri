@@ -1,0 +1,18 @@
+services:
+  al:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: al
+    volumes:
+      - ..:/workspace:cached
+      # kiro-cli の認証トークン等を永続化（再ビルドでも再ログイン不要）
+      - kirocli-data:/home/node/.local/share/kiro-cli
+    ports:
+      - "${AL_PORT:-40001}:3000"
+    environment:
+      - NODE_ENV=development
+    command: sleep infinity
+
+volumes:
+  kirocli-data:

@@ -1,0 +1,17 @@
+# 環境変数（make setup で自動生成）
+.env
+.devcontainer/.env
+
+# Node.js
+node_modules/
+dist/
+build/
+*.log
+
+# OS / IDE
+.DS_Store
+.idea/
+*.iml
+
+# kiro / その他ローカル生成物
+.kiro/local/
