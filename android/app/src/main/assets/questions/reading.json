@@ -1,0 +1,182 @@
+[
+  {
+    "id": "read-0001",
+    "category": "長文読解",
+    "type": "reading",
+    "instruction": "本文を読んで、問いに最も適切な答えを選びなさい。",
+    "contextText": "Depuis la pandémie, le télétravail s'est largement répandu en France. De nombreux salariés apprécient de ne plus perdre de temps dans les transports et de mieux concilier vie professionnelle et vie privée. Cependant, tout le monde n'y trouve pas son compte. Certains se plaignent de l'isolement et du manque de contact avec leurs collègues. D'autres ont du mal à séparer le travail de la maison et finissent par travailler plus qu'avant. Les entreprises, de leur côté, hésitent : si le télétravail réduit les coûts de bureau, il rend parfois la communication entre équipes plus difficile. Aujourd'hui, beaucoup d'employeurs choisissent une solution intermédiaire : quelques jours à la maison, le reste au bureau.",
+    "prompt": "問1：本文によると、テレワークの利点として挙げられているものは？",
+    "choices": [
+      "通勤時間を失わずに済むこと",
+      "より多くの給料がもらえること",
+      "たくさん旅行できること",
+      "転職しやすくなること"
+    ],
+    "answerIndex": 0,
+    "explanation": "本文に « ne plus perdre de temps dans les transports »（通勤で時間を失わなくて済む）とあります。給料・旅行・転職には触れていません。",
+    "grammarPoint": "読解（利点の把握）",
+    "tags": ["長文読解", "télétravail"]
+  },
+  {
+    "id": "read-0002",
+    "category": "長文読解",
+    "type": "reading",
+    "instruction": "本文を読んで、問いに最も適切な答えを選びなさい。",
+    "contextText": "Depuis la pandémie, le télétravail s'est largement répandu en France. De nombreux salariés apprécient de ne plus perdre de temps dans les transports et de mieux concilier vie professionnelle et vie privée. Cependant, tout le monde n'y trouve pas son compte. Certains se plaignent de l'isolement et du manque de contact avec leurs collègues. D'autres ont du mal à séparer le travail de la maison et finissent par travailler plus qu'avant. Les entreprises, de leur côté, hésitent : si le télétravail réduit les coûts de bureau, il rend parfois la communication entre équipes plus difficile. Aujourd'hui, beaucoup d'employeurs choisissent une solution intermédiaire : quelques jours à la maison, le reste au bureau.",
+    "prompt": "問2：一部の従業員は何について不満を述べているか？",
+    "choices": [
+      "孤独と同僚との接触不足",
+      "騒音",
+      "給料の安さ",
+      "通勤の混雑"
+    ],
+    "answerIndex": 0,
+    "explanation": "« Certains se plaignent de l'isolement et du manque de contact avec leurs collègues » が根拠。se plaindre de で「〜に不満を言う」。",
+    "grammarPoint": "読解（不満の理由）",
+    "tags": ["長文読解", "télétravail"]
+  },
+  {
+    "id": "read-0003",
+    "category": "長文読解",
+    "type": "reading",
+    "instruction": "本文を読んで、問いに最も適切な答えを選びなさい。",
+    "contextText": "Depuis la pandémie, le télétravail s'est largement répandu en France. De nombreux salariés apprécient de ne plus perdre de temps dans les transports et de mieux concilier vie professionnelle et vie privée. Cependant, tout le monde n'y trouve pas son compte. Certains se plaignent de l'isolement et du manque de contact avec leurs collègues. D'autres ont du mal à séparer le travail de la maison et finissent par travailler plus qu'avant. Les entreprises, de leur côté, hésitent : si le télétravail réduit les coûts de bureau, il rend parfois la communication entre équipes plus difficile. Aujourd'hui, beaucoup d'employeurs choisissent une solution intermédiaire : quelques jours à la maison, le reste au bureau.",
+    "prompt": "問3：« tout le monde n'y trouve pas son compte » の意味に最も近いものは？",
+    "choices": [
+      "テレワークは全員に合うわけではない",
+      "全員が満足している",
+      "誰もテレワークを好まない",
+      "テレワークは費用がかかる"
+    ],
+    "answerIndex": 0,
+    "explanation": "y trouver son compte は「満足する・自分に合う」。否定で「全員が満足するわけではない＝万人向きではない」。",
+    "grammarPoint": "読解（成句 y trouver son compte）",
+    "tags": ["長文読解", "成句"]
+  },
+  {
+    "id": "read-0004",
+    "category": "長文読解",
+    "type": "reading",
+    "instruction": "本文を読んで、問いに最も適切な答えを選びなさい。",
+    "contextText": "Depuis la pandémie, le télétravail s'est largement répandu en France. De nombreux salariés apprécient de ne plus perdre de temps dans les transports et de mieux concilier vie professionnelle et vie privée. Cependant, tout le monde n'y trouve pas son compte. Certains se plaignent de l'isolement et du manque de contact avec leurs collègues. D'autres ont du mal à séparer le travail de la maison et finissent par travailler plus qu'avant. Les entreprises, de leur côté, hésitent : si le télétravail réduit les coûts de bureau, il rend parfois la communication entre équipes plus difficile. Aujourd'hui, beaucoup d'employeurs choisissent une solution intermédiaire : quelques jours à la maison, le reste au bureau.",
+    "prompt": "問4：企業にとってのテレワークの難点として本文が挙げるのは？",
+    "choices": [
+      "チーム間の意思疎通が難しくなること",
+      "オフィスの費用が増えること",
+      "従業員が減ること",
+      "通勤手当が増えること"
+    ],
+    "answerIndex": 0,
+    "explanation": "« il rend parfois la communication entre équipes plus difficile » が根拠。費用は « réduit les coûts »（減らす）とあり、増えるわけではありません。",
+    "grammarPoint": "読解（企業側の課題）",
+    "tags": ["長文読解", "télétravail"]
+  },
+  {
+    "id": "read-0005",
+    "category": "長文読解",
+    "type": "reading",
+    "instruction": "本文を読んで、問いに最も適切な答えを選びなさい。",
+    "contextText": "Depuis la pandémie, le télétravail s'est largement répandu en France. De nombreux salariés apprécient de ne plus perdre de temps dans les transports et de mieux concilier vie professionnelle et vie privée. Cependant, tout le monde n'y trouve pas son compte. Certains se plaignent de l'isolement et du manque de contact avec leurs collègues. D'autres ont du mal à séparer le travail de la maison et finissent par travailler plus qu'avant. Les entreprises, de leur côté, hésitent : si le télétravail réduit les coûts de bureau, il rend parfois la communication entre équipes plus difficile. Aujourd'hui, beaucoup d'employeurs choisissent une solution intermédiaire : quelques jours à la maison, le reste au bureau.",
+    "prompt": "問5：多くの雇用主が今選んでいる解決策は？",
+    "choices": [
+      "在宅と出社を組み合わせる",
+      "完全在宅にする",
+      "全員を出社に戻す",
+      "オフィスを廃止する"
+    ],
+    "answerIndex": 0,
+    "explanation": "« une solution intermédiaire : quelques jours à la maison, le reste au bureau »（在宅と出社の折衷）が根拠です。",
+    "grammarPoint": "読解（結論の把握）",
+    "tags": ["長文読解", "télétravail"]
+  },
+  {
+    "id": "read-0006",
+    "category": "長文読解",
+    "type": "reading",
+    "instruction": "本文を読んで、問いに最も適切な答えを選びなさい。",
+    "contextText": "Quand Camille a perdu son emploi, elle a décidé de réaliser un vieux rêve : ouvrir une librairie dans son village. Au début, ses proches l'ont mise en garde, car les petites librairies ferment souvent les unes après les autres. Mais Camille ne s'est pas découragée. Elle a organisé des rencontres avec des auteurs, des ateliers de lecture pour les enfants et installé un café au fond de la boutique. Peu à peu, les habitants ont pris l'habitude de s'y retrouver. Trois ans plus tard, sa librairie est devenue un véritable lieu de vie. Camille dit souvent qu'elle n'a jamais autant travaillé, mais qu'elle ne regrette pas son choix.",
+    "prompt": "問1：カミーユが書店を開いた動機は？",
+    "choices": [
+      "長年の夢を実現するため",
+      "大金を稼ぐため",
+      "コーヒーが好きだったため",
+      "人に頼まれたため"
+    ],
+    "answerIndex": 0,
+    "explanation": "« réaliser un vieux rêve : ouvrir une librairie » が根拠。失業は契機ですが、動機として書かれているのは「長年の夢の実現」です。",
+    "grammarPoint": "読解（動機の把握）",
+    "tags": ["長文読解", "librairie"]
+  },
+  {
+    "id": "read-0007",
+    "category": "長文読解",
+    "type": "reading",
+    "instruction": "本文を読んで、問いに最も適切な答えを選びなさい。",
+    "contextText": "Quand Camille a perdu son emploi, elle a décidé de réaliser un vieux rêve : ouvrir une librairie dans son village. Au début, ses proches l'ont mise en garde, car les petites librairies ferment souvent les unes après les autres. Mais Camille ne s'est pas découragée. Elle a organisé des rencontres avec des auteurs, des ateliers de lecture pour les enfants et installé un café au fond de la boutique. Peu à peu, les habitants ont pris l'habitude de s'y retrouver. Trois ans plus tard, sa librairie est devenue un véritable lieu de vie. Camille dit souvent qu'elle n'a jamais autant travaillé, mais qu'elle ne regrette pas son choix.",
+    "prompt": "問2：周囲の人々は最初どう反応したか？",
+    "choices": [
+      "彼女に注意を促した",
+      "彼女を祝福した",
+      "金銭的に援助した",
+      "無関心だった"
+    ],
+    "answerIndex": 0,
+    "explanation": "« ses proches l'ont mise en garde »（注意・警告した）が根拠。mettre qn en garde で「〜に警告する」。",
+    "grammarPoint": "読解（成句 mettre en garde）",
+    "tags": ["長文読解", "成句"]
+  },
+  {
+    "id": "read-0008",
+    "category": "長文読解",
+    "type": "reading",
+    "instruction": "本文を読んで、問いに最も適切な答えを選びなさい。",
+    "contextText": "Quand Camille a perdu son emploi, elle a décidé de réaliser un vieux rêve : ouvrir une librairie dans son village. Au début, ses proches l'ont mise en garde, car les petites librairies ferment souvent les unes après les autres. Mais Camille ne s'est pas découragée. Elle a organisé des rencontres avec des auteurs, des ateliers de lecture pour les enfants et installé un café au fond de la boutique. Peu à peu, les habitants ont pris l'habitude de s'y retrouver. Trois ans plus tard, sa librairie est devenue un véritable lieu de vie. Camille dit souvent qu'elle n'a jamais autant travaillé, mais qu'elle ne regrette pas son choix.",
+    "prompt": "問3：カミーユが客を呼び込むために行ったことは？",
+    "choices": [
+      "作家との交流会・子ども向け読書会・カフェの設置",
+      "テレビ広告",
+      "大幅な値引き",
+      "特に何もしなかった"
+    ],
+    "answerIndex": 0,
+    "explanation": "« des rencontres avec des auteurs, des ateliers de lecture pour les enfants et installé un café » が根拠です。",
+    "grammarPoint": "読解（具体的施策の把握）",
+    "tags": ["長文読解", "librairie"]
+  },
+  {
+    "id": "read-0009",
+    "category": "長文読解",
+    "type": "reading",
+    "instruction": "本文を読んで、問いに最も適切な答えを選びなさい。",
+    "contextText": "Quand Camille a perdu son emploi, elle a décidé de réaliser un vieux rêve : ouvrir une librairie dans son village. Au début, ses proches l'ont mise en garde, car les petites librairies ferment souvent les unes après les autres. Mais Camille ne s'est pas découragée. Elle a organisé des rencontres avec des auteurs, des ateliers de lecture pour les enfants et installé un café au fond de la boutique. Peu à peu, les habitants ont pris l'habitude de s'y retrouver. Trois ans plus tard, sa librairie est devenue un véritable lieu de vie. Camille dit souvent qu'elle n'a jamais autant travaillé, mais qu'elle ne regrette pas son choix.",
+    "prompt": "問4：« elle ne s'est pas découragée » の意味は？",
+    "choices": [
+      "彼女はあきらめなかった",
+      "彼女は怖がった",
+      "彼女は考えを変えた",
+      "彼女は休んだ"
+    ],
+    "answerIndex": 0,
+    "explanation": "se décourager は「気落ちする・くじける」。否定で「あきらめなかった・くじけなかった」。",
+    "grammarPoint": "読解（語彙 se décourager）",
+    "tags": ["長文読解", "語彙"]
+  },
+  {
+    "id": "read-0010",
+    "category": "長文読解",
+    "type": "reading",
+    "instruction": "本文を読んで、問いに最も適切な答えを選びなさい。",
+    "contextText": "Quand Camille a perdu son emploi, elle a décidé de réaliser un vieux rêve : ouvrir une librairie dans son village. Au début, ses proches l'ont mise en garde, car les petites librairies ferment souvent les unes après les autres. Mais Camille ne s'est pas découragée. Elle a organisé des rencontres avec des auteurs, des ateliers de lecture pour les enfants et installé un café au fond de la boutique. Peu à peu, les habitants ont pris l'habitude de s'y retrouver. Trois ans plus tard, sa librairie est devenue un véritable lieu de vie. Camille dit souvent qu'elle n'a jamais autant travaillé, mais qu'elle ne regrette pas son choix.",
+    "prompt": "問5：最後にカミーユが抱いている気持ちは？",
+    "choices": [
+      "大変だが選択を後悔していない",
+      "店を開いたことを後悔している",
+      "すべてをやめたい",
+      "退屈している"
+    ],
+    "answerIndex": 0,
+    "explanation": "« elle n'a jamais autant travaillé, mais qu'elle ne regrette pas son choix »（これほど働いたことはないが、後悔していない）が根拠です。",
+    "grammarPoint": "読解（心情の把握）",
+    "tags": ["長文読解", "librairie"]
+  }
+]
