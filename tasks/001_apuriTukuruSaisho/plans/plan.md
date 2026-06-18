@@ -302,7 +302,7 @@ se porter
 - 画面: Home（モード/カテゴリ選択・統計・記録リセット）→ Quiz（4択・解答後に正誤配色＋解説）→ Result（正答率）
 - 出題ロジック: QuizEngine（ALL / RANDOM / INCORRECT_ONLY）
 - 進捗保存: DataStore Preferences（正解/不正解履歴、不正解のみ出題に利用）
-- 問題データ: assets 同梱 JSON、全オリジナル **計111問**（前置詞22・慣用表現38・動詞活用27・語彙24）。`index.json` 経由で読み込み、JSON 追記でさらに拡張可能
+- 問題データ: assets 同梱 JSON、全オリジナル **計146問**（前置詞22・慣用表現63・動詞活用27・語彙24・長文読解10）。`index.json` 経由で読み込み、JSON 追記でさらに拡張可能
 - テスト: QuizEngineTest（JVM, 6ケース）。出題形式は §3.2 の4タイプ（single / shared_pool / conjugation / idiom_fill）に対応
 
 注意: 開発コンテナには Android SDK / JDK を含まないため、ビルド・実機検証はホストの Android Studio で実施（README 参照）。本環境では JSON 妥当性チェックと静的レビューのみ実施済み。
