@@ -59,11 +59,18 @@ tasks/
 
 # コンテナ構成
 
-DevContainer は app コンテナ（`al`）単体構成。コンテナは「コード編集 + kiro（Kiro CLI）による AI 支援」に専念し、Android のビルド（.aab/.apk）・エミュレーター/実機検証はホストの Android Studio で行う。
+DevContainer は app コンテナ（`al`）単体構成。コンテナ内で「コード編集 + kiro（Kiro CLI）による AI 支援」に加え、Android のネイティブビルド（.aab/.apk）まで行える（JDK 17 + Android SDK + Gradle を同梱）。エミュレーター/実機検証はホストの Android Studio で行う（コンテナ内ではエミュレーターは動かさない）。
 
 | コンテナ | 用途 | DevContainer(inst.1) |
 |---|---|---|
-| `al` | Node.js 20（アプリ開発 + kiro AI 支援） | `40001` |
+| `al` | Node.js 20 + JDK 17 + Android SDK（アプリ開発 + Android ビルド + kiro AI 支援） | `40001` |
+
+## Android ビルド
+
+- `al` コンテナには JDK 17（`default-jdk`）・Android SDK（`/opt/android-sdk`）・Gradle が導入済み。
+- `make apk`（デバッグ APK）/ `make aab`（リリース AAB）でビルドできる（プロジェクトの `./gradlew` を利用）。
+- `make sdk-info` で JDK / Android SDK の状態を確認できる。
+- Android SDK のバージョンは Dockerfile の `ARG`（`ANDROID_API_LEVEL` / `ANDROID_BUILD_TOOLS` / `ANDROID_CMDLINE_TOOLS_VERSION` / `GRADLE_VERSION`）で変更可能。
 
 ## DevContainer
 
