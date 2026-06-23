@@ -37,5 +37,8 @@ make sdk-info
 ### 補足
 
 - エミュレーター/実機での動作確認は、コンテナ内ではなく **ホストの Android Studio** で行います（コンテナ内ではエミュレーターは動かしません）。
+- **Apple Silicon (arm64) の前提**: Android SDK の build-tools（`aapt2` 等）は公式に Linux x86_64 版のみ提供されるため、本 DevContainer は `platform: linux/amd64` で動作します（`.devcontainer/docker-compose.yml`）。Apple Silicon では Docker Desktop の **Rosetta によるエミュレーション**を利用するため、以下を有効化してください。
+  - Docker Desktop → Settings → General → **「Use Rosetta for x86_64/amd64 emulation on Apple Silicon」を ON**
+  - エミュレーション動作のため、Gradle ビルドはネイティブ arm64 より遅くなります（実行は可能）。
 - Android SDK のバージョンは `.devcontainer/Dockerfile` の `ARG`（`ANDROID_API_LEVEL` / `ANDROID_BUILD_TOOLS` / `ANDROID_CMDLINE_TOOLS_VERSION` / `GRADLE_VERSION`）で変更できます。
 - DevContainer のセットアップ・kiro の起動方法など詳細は [`AGENTS.md`](AGENTS.md) を参照してください。
