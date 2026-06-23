@@ -13,10 +13,14 @@
 - **ベースイメージ / 実行ユーザ**: axolLoop に合わせ `node:20-bookworm` / `remoteUser=node` で統一する。
   - node:20-bookworm は glibc 2.36 のため、kiro-cli は glibc 2.34+ 要求の標準ビルド ZIP を使用可能。
   - いただいた kiro スニペットは `vscode` ユーザ / `/home/vscode/...` 前提だが、本構成では `node` ユーザに合わせ `/home/node/.local/share/kiro-cli` に読み替える。
-- **役割分担（確認事項1=軽量化案で確定）**: コンテナは「コード編集 + kiro による AI 支援」に専念し、Android のビルド（.aab/.apk）・エミュレーター/実機検証は **ホストの Android Studio** で行う。
-  - そのため **コンテナには JDK / Android SDK / Gradle を導入しない**（イメージを軽量に保つ）。
-  - エミュレーターはホストの Android Studio で動かす（コンテナ内エミュレーターは仮想化支援・GUI の制約で実用的でないため）。
-  - 将来コンテナ内 CLI ビルドが必要になった場合は、後追いで JDK + Android SDK を追加する余地を残す（今回は未導入）。
+- **役割分担（最終決定: コンテナ内ビルド）**: コンテナ内で「コード編集 + kiro による AI 支援 + Android のネイティブビルド（.aab/.apk）」まで行う。
+  - そのため **コンテナに JDK 17 + Android SDK + Gradle を導入する**。
+  - **JDK**: Debian `default-jdk`（bookworm = OpenJDK 17）、`JAVA_HOME=/usr/lib/jvm/default-java`。
+  - **Android SDK**: cmdline-tools(14742923) + platform-tools + `platforms;android-35` + `build-tools;35.0.0`、ライセンス自動承諾、`ANDROID_SDK_ROOT=/opt/android-sdk`、node 所有。
+  - **Gradle**: 8.13 を同梱（wrapper 非保有プロジェクトのブートストラップ用）。既存プロジェクトは `./gradlew` を利用。
+  - バージョンはすべて `ARG`（`ANDROID_CMDLINE_TOOLS_VERSION` / `ANDROID_API_LEVEL` / `ANDROID_BUILD_TOOLS` / `GRADLE_VERSION` / `KIRO_CLI_VERSION`）で変更可能。
+  - エミュレーター/実機検証はホストの Android Studio で行う（コンテナ内エミュレーターは仮想化支援・GUI 制約のため対象外）。
+  - 注意（arm64/Apple Silicon）: コンテナは arm64 で動作する。Android build-tools は近年 aarch64 Linux バイナリを提供しており動作見込みだが、特定バージョンで非対応の場合は `ANDROID_BUILD_TOOLS` を調整する。
 - **サービス簡素化**: `al` 単一サービスのため、MinIO バケット初期化・DB 待ち・socat による他コンテナ転送は不要。`post-start.sh` は kiro 設定の適用のみとする。
 - **kiro バイナリ取得**: 公式配布 ZIP をビルド時に取得・インストールし、`/usr/local/bin` に配置（全ユーザ実行可）。
   - URL: `https://desktop-release.q.us-east-1.amazonaws.com/${KIRO_CLI_VERSION}/kirocli-<arch>-linux.zip`（`KIRO_CLI_VERSION` 既定 `latest`）。
@@ -33,11 +37,13 @@
    - `postCreateCommand` / `postStartCommand` / `shutdownAction=stopCompose`
 2. `.devcontainer/Dockerfile`
    - `node:20-bookworm` ベース
-   - apt: git/curl/wget/unzip/zip/vim/zsh/jq/sudo（mysql-client/socat は除外）
+   - apt: git/curl/wget/unzip/zip/vim/zsh/jq/sudo
+   - **default-jdk（OpenJDK 17）**、`JAVA_HOME=/usr/lib/jvm/default-java`
+   - **Android SDK**（cmdline-tools 14742923 → sdkmanager で platform-tools / platforms;android-35 / build-tools;35.0.0、ライセンス自動承諾、`/opt/android-sdk`、node 所有）
+   - **Gradle 8.13**（`/opt` 展開 + `/usr/local/bin/gradle` シンボリックリンク）
    - pnpm（corepack）、oh-my-zsh（node ユーザ）
    - **kiro-cli インストール**（ZIP → install.sh → `/usr/local/bin` へ配置、`ARG KIRO_CLI_VERSION=latest`）
    - node ユーザに NOPASSWD sudo
-   - ※ JDK / Android SDK / Gradle は導入しない（ビルド・検証はホストの Android Studio で実施）
 3. `.devcontainer/docker-compose.yml`
    - `al` サービスのみ（`build`, `volumes: ..:/workspace:cached` と `kirocli-data:/home/node/.local/share/kiro-cli`, `ports: "${AL_PORT:-40001}:3000"`, `command: sleep infinity`）
    - `volumes: kirocli-data:`
@@ -103,6 +109,6 @@ kiro: ## [app内] kiro-cli を起動 (未ログインなら自動でSSOログイ
 
 ## 確認事項の回答（確定）
 
-1. ビルド対象 → **軽量化案**。コンテナは編集 + kiro による AI 支援に専念し、Android のビルド（.aab/.apk）・エミュレーター/実機検証はホストの Android Studio で実施。コンテナに JDK/Android SDK/Gradle は導入しない。
+1. ビルド対象 → **コンテナ内ビルド（最終決定）**。`node:20-bookworm` + OpenJDK 17 + Android SDK + Gradle を導入し、`make apk`/`make aab` で .apk/.aab を生成可能にする。エミュレーター/実機検証はホストの Android Studio。
 2. `al` ポート → 内部 `:3000` にマッピングを維持（将来の dev server 用）。
 3. kiro 既定エージェント → 配置しない。`chat.defaultModel` 設定のみ。

@@ -1,4 +1,4 @@
-.PHONY: help setup downv kiro install dev build test lint typecheck
+.PHONY: help setup downv kiro install dev build test lint typecheck apk aab sdk-info
 
 # デフォルトターゲット
 .DEFAULT_GOAL := help
@@ -51,3 +51,14 @@ lint: ## ESLint 実行
 
 typecheck: ## TypeScript 型チェック
 	@pnpm run typecheck
+
+##@ Android（app コンテナ内で実行 / Gradle Wrapper を利用）
+apk: ## デバッグ APK をビルド（./gradlew assembleDebug）
+	@./gradlew assembleDebug
+
+aab: ## リリース AAB をビルド（./gradlew bundleRelease）
+	@./gradlew bundleRelease
+
+sdk-info: ## Android SDK / JDK の情報を表示
+	@echo "JAVA_HOME=$$JAVA_HOME"; java -version
+	@echo "ANDROID_SDK_ROOT=$$ANDROID_SDK_ROOT"; sdkmanager --list_installed
