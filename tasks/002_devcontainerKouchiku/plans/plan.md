@@ -16,7 +16,7 @@
 - **役割分担（最終決定: コンテナ内ビルド）**: コンテナ内で「コード編集 + kiro による AI 支援 + Android のネイティブビルド（.aab/.apk）」まで行う。
   - そのため **コンテナに JDK 17 + Android SDK + Gradle を導入する**。
   - **JDK**: Debian `default-jdk`（bookworm = OpenJDK 17）、`JAVA_HOME=/usr/lib/jvm/default-java`。
-  - **Android SDK**: cmdline-tools(14742923) + platform-tools + `platforms;android-35` + `build-tools;35.0.0`、ライセンス自動承諾、`ANDROID_SDK_ROOT=/opt/android-sdk`、node 所有。
+  - **Android SDK**: cmdline-tools(14742923) + platform-tools + `platforms;android-34` + `build-tools;34.0.0`、ライセンス自動承諾、`ANDROID_SDK_ROOT=/opt/android-sdk`、node 所有。
   - **Gradle**: 8.13 を同梱（wrapper 非保有プロジェクトのブートストラップ用）。既存プロジェクトは `./gradlew` を利用。
   - バージョンはすべて `ARG`（`ANDROID_CMDLINE_TOOLS_VERSION` / `ANDROID_API_LEVEL` / `ANDROID_BUILD_TOOLS` / `GRADLE_VERSION` / `KIRO_CLI_VERSION`）で変更可能。
   - エミュレーター/実機検証はホストの Android Studio で行う（コンテナ内エミュレーターは仮想化支援・GUI 制約のため対象外）。
@@ -39,7 +39,7 @@
    - `node:20-bookworm` ベース
    - apt: git/curl/wget/unzip/zip/vim/zsh/jq/sudo
    - **default-jdk（OpenJDK 17）**、`JAVA_HOME=/usr/lib/jvm/default-java`
-   - **Android SDK**（cmdline-tools 14742923 → sdkmanager で platform-tools / platforms;android-35 / build-tools;35.0.0、ライセンス自動承諾、`/opt/android-sdk`、node 所有）
+   - **Android SDK**（cmdline-tools 14742923 → sdkmanager で platform-tools / platforms;android-34 / build-tools;34.0.0、ライセンス自動承諾、`/opt/android-sdk`、node 所有）
    - **Gradle 8.13**（`/opt` 展開 + `/usr/local/bin/gradle` シンボリックリンク）
    - pnpm（corepack）、oh-my-zsh（node ユーザ）
    - **kiro-cli インストール**（ZIP → install.sh → `/usr/local/bin` へ配置、`ARG KIRO_CLI_VERSION=latest`）

@@ -53,11 +53,13 @@ typecheck: ## TypeScript 型チェック
 	@pnpm run typecheck
 
 ##@ Android（app コンテナ内で実行 / Gradle Wrapper を利用）
-apk: ## デバッグ APK をビルド（./gradlew assembleDebug）
-	@./gradlew assembleDebug
+ANDROID_DIR ?= android
 
-aab: ## リリース AAB をビルド（./gradlew bundleRelease）
-	@./gradlew bundleRelease
+apk: ## デバッグ APK をビルド（android/ で ./gradlew assembleDebug）
+	@cd $(ANDROID_DIR) && ./gradlew assembleDebug
+
+aab: ## リリース AAB をビルド（android/ で ./gradlew bundleRelease）
+	@cd $(ANDROID_DIR) && ./gradlew bundleRelease
 
 sdk-info: ## Android SDK / JDK の情報を表示
 	@echo "JAVA_HOME=$$JAVA_HOME"; java -version

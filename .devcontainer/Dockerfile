@@ -26,8 +26,8 @@ ENV JAVA_HOME=/usr/lib/jvm/default-java
 # コンテナ内で .aab/.apk のネイティブビルドを行うために導入する。
 # ----------------------------------------------------------------------
 ARG ANDROID_CMDLINE_TOOLS_VERSION=14742923
-ARG ANDROID_API_LEVEL=35
-ARG ANDROID_BUILD_TOOLS=35.0.0
+ARG ANDROID_API_LEVEL=34
+ARG ANDROID_BUILD_TOOLS=34.0.0
 ENV ANDROID_SDK_ROOT=/opt/android-sdk
 ENV ANDROID_HOME=/opt/android-sdk
 ENV PATH="${PATH}:/opt/android-sdk/cmdline-tools/latest/bin:/opt/android-sdk/platform-tools"

@@ -1,5 +1,9 @@
 services:
   al:
+    # Android SDK の build-tools（aapt2 等）は公式に Linux x86_64 版のみ提供されるため、
+    # Apple Silicon(arm64) でもコンテナを amd64 で動かし、Docker Desktop の Rosetta で
+    # エミュレートしてネイティブビルドを成立させる。
+    platform: linux/amd64
     build:
       context: .
       dockerfile: Dockerfile
